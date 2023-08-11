@@ -1,0 +1,73 @@
+offline_config:
+  use_offline_model: true  
+  load_ckpt_dir:
+      ./sage_models/final   
+
+  type: 1909   
+  version: 9
+  act_fn: "leaky"
+
+  p_mlp_depth: 
+      2
+  c_mlp_depth: 
+      2
+  p_enc_size: 
+      256
+  c_enc_size: 
+      256   
+  lstm_depth: 
+      1
+  policy_lstm_size: 
+      1024
+  critic_lstm_size: 
+      1024
+  p_mlp_size: 
+      256
+  c_mlp_size: 
+      256
+
+  policy_lr: 0.0001
+  critic_lr: 0.001
+  batch_size: 256
+
+  sequence_length: 
+      50
+  vmax:
+      500. 
+  vmin:
+      0.
+  num_atoms: 
+     101 
+  discount: 
+      0.95
+  policy_improvement_modes: exp 
+  max_grad_norm: 
+      40 
+  add_uid: false
+  target_update_period: 100
+  num_training_step: 1000000
+
+
+environment_name: tcp
+tcpspec:
+  action_version: 9   # 9 means pow(2,action)
+  action_max: 2.0   
+  poll_fq: 0.01
+  input_dim: 77    # message from sage.cc
+  obs_cols: [2, 3, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 76]  #index starts from 0, i.e., first column in the file will be <0>
+  reward_cols: [75]
+  obs_dim: 69   
+
+tcpactor:
+  return_report_period: 100
+
+save_every_n_hours: 1
+num_training_step: 1000000 
+use_learner_ckpt: true 
+use_learner_tb: true
+
+wandb:
+  use_wandb: false 
+  proj_name: data-driven-rl
+  
+

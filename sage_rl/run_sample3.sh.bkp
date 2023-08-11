@@ -1,0 +1,4 @@
+./mem_clean.sh
+reset
+./sage.sh 10 44545 wired48 wired48 1 1000 48 48 7 0 testing 120 1 0 2 1 1
+
