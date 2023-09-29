@@ -95,9 +95,10 @@ cd ~/sage
 pip install -e .
 ```
 
-Set the system parameters:
+Compile/Build Sage and set the system parameters:
 ```bash
 cd ~/sage/sage_rl
+bash build.sh
 bash set_sysctl.sh
 ```
 
